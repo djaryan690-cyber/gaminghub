@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gaming Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ❗ ALL YOUR ORIGINAL CSS — UNCHANGED */
+*{box-sizing:border-box}
+body{margin:0;font-family:'Orbitron',sans-serif;background:#020617;color:white;overflow-x:hidden}
+#particles{position:fixed;top:0;left:0;z-index:-1}
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);padding:20px}
+.sidebar a{display:block;color:#9ca3af;text-decoration:none;margin:12px 0}
+.sidebar a:hover{color:#38bdf8}
+.main{margin-left:240px;padding:30px}
+.footer{margin-left:240px;background:linear-gradient(180deg,#020617,#000814);padding:40px 20px 20px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-content{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px}
+.footer-links a{display:block;color:#9ca3af;text-decoration:none;margin:6px 0}
+.footer-links a:hover{color:#38bdf8}
+.footer-bottom{text-align:center;margin-top:30px;font-size:12px;opacity:.5}
+.search{width:100%;max-width:500px;margin:20px auto;display:block;padding:12px;border-radius:12px;border:none;background:#0b1220;color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.card{border-radius:18px;overflow:hidden;background:rgba(255,255,255,.05);box-shadow:0 10px 25px rgba(0,0,0,.6);position:relative;transition:.3s}
+.card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 0 25px rgba(56,189,248,.7)}
+.card::after{content:"";position:absolute;inset:0;background:rgba(56,189,248,.15);opacity:0;transition:.3s;pointer-events:none}
+.card:hover::after{opacity:1}
+.card img{width:100%;height:180px;object-fit:cover}
+.title{padding:10px;text-align:center;background:rgba(0,0,0,.6)}
+#pageTransition{position:fixed;inset:0;background:#020617;z-index:9998;opacity:0;pointer-events:none;transition:opacity .5s ease}
+#pageTransition.active{opacity:1;pointer-events:all}
+body{animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<div id="pageTransition"></div>
+<canvas id="particles"></canvas>
+
+<div class="sidebar">
+  <h2>🎮 Menu</h2>
+  <!-- ✅ REAL NAVIGATION LINKS -->
+  <a href="home.html">Home</a>
+  <a href="platforms.html">Platforms</a>
+  <a href="trending.html">Trending</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <button id="themeToggle">🌙 Toggle Theme</button>
+</div>
+
+<div class="main">
+  <h1>Gaming Portal</h1>
+  <input class="search" placeholder="Search platform..." onkeyup="filterCards()">
+
+  <div class="grid">
+    <!-- YOUR CARDS UNCHANGED -->
+    <div class="card" data-name="roblox">
+      <img src="roblox1.jpg" usemap="#robloxmap">
+      <map name="robloxmap"><area shape="rect" coords="0,0,600,400" href="https://www.roblox.com/" target="_blank"></map>
+      <div class="title">ROBLOX</div>
+    </div>
+
+    <div class="card" data-name="epic">
+      <img src="Epic.jpg" usemap="#epicmap">
+      <map name="epicmap"><area shape="rect" coords="0,0,600,400" href="https://store.epicgames.com/" target="_blank"></map>
+      <div class="title">EPIC GAMES</div>
+    </div>
+
+    <div class="card" data-name="poki">
+      <img src="poki.jpg" usemap="#pokimap">
+      <map name="pokimap"><area shape="rect" coords="0,0,600,400" href="https://poki.com/" target="_blank"></map>
+      <div class="title">POKI GAMES</div>
+    </div>
+
+    <div class="card" data-name="crazy">
+      <img src="crazy.jpg" usemap="#crazymap">
+      <map name="crazymap"><area shape="rect" coords="0,0,600,400" href="https://www.crazygames.com/" target="_blank"></map>
+      <div class="title">CRAZY GAMES</div>
+    </div>
+
+    <div class="card" data-name="tanki">
+      <img src="tanki.jpg" usemap="#tankimap">
+      <map name="tankimap"><area shape="rect" coords="0,0,600,400" href="https://tankionline.com/" target="_blank"></map>
+      <div class="title">TANKI ONLINE</div>
+    </div>
+
+    <div class="card" data-name="msn">
+      <img src="msn.png" usemap="#msnmap">
+      <map name="msnmap"><area shape="rect" coords="0,0,600,400" href="https://www.msn.com/en-in/play" target="_blank"></map>
+      <div class="title">MSN GAMES</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      🎮 Gaming Portal
+      <p>Your hub for online gaming platforms</p>
+    </div>
+    <div class="footer-links">
+      <!-- ✅ REAL LINKS -->
+      <a href="home.html">Home</a>
+      <a href="platforms.html">Platforms</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <span>Follow</span>
+      <a href="#">🌐</a>
+      <a href="#">🐦</a>
+      <a href="#">📸</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Gaming Portal • Built with HTML, CSS & JS by Aryan 🚀
+  </div>
+</footer>
+
+<!-- ❗ YOUR ORIGINAL JS UNCHANGED -->
+<audio id="hoverSound" src="hover.mp3"></audio>
+<audio id="clickSound" src="click.mp3"></audio>
+
+<script>
+/* SEARCH */
+function filterCards(){
+  let input=document.querySelector(".search").value.toLowerCase();
+  document.querySelectorAll(".card").forEach(card=>{
+    card.style.display=card.dataset.name.includes(input)?"block":"none";
+  });
+}
+
+/* SOUND */
+const hoverSound=document.getElementById("hoverSound");
+const clickSound=document.getElementById("clickSound");
+document.querySelectorAll(".card").forEach(card=>{
+  card.addEventListener("mouseenter",()=>{hoverSound.currentTime=0;hoverSound.play()});
+  card.addEventListener("click",()=>{clickSound.currentTime=0;clickSound.play()});
+});
+
+/* THEME */
+const toggleBtn=document.getElementById("themeToggle");
+function setTheme(mode){
+  document.body.style.background=mode==="light"?"#f1f5f9":"#020617";
+  document.body.style.color=mode==="light"?"#020617":"white";
+  localStorage.setItem("theme",mode);
+}
+toggleBtn.onclick=()=>{
+  let t=localStorage.getItem("theme")||"dark";
+  setTheme(t==="dark"?"light":"dark");
+};
+setTheme(localStorage.getItem("theme")||"dark");
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+let particles=Array.from({length:80},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5}));
+function animate(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.fillStyle="rgba(56,189,248,.7)";
+ particles.forEach(p=>{p.x+=p.dx;p.y+=p.dy;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()});
+ requestAnimationFrame(animate);
+}
+animate();
+
+/* PAGE TRANSITION */
+const overlay=document.getElementById("pageTransition");
+document.querySelectorAll("area").forEach(link=>{
+ link.addEventListener("click",function(e){
+  e.preventDefault();
+  const url=this.href;
+  overlay.classList.add("active");
+  setTimeout(()=>{window.open(url,"_blank");overlay.classList.remove("active")},500);
+ });
+});
+</script>
+
+</body>
+</html>
